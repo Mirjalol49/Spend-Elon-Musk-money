@@ -9,8 +9,9 @@
     align-items: center;
     gap: 10px;
     color: #333;
-    width: 340px;
-    /* Increased width */
+    width: 100%;
+    max-width: 340px;
+    /* Flexible width */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     border: none;
     overflow: visible;
