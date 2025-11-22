@@ -80,8 +80,8 @@
     /* Changed to white and slightly thicker */
     display: flex;
     justify-content: center;
-    padding-bottom: 0.1em;
-    /* Space above underline */
+    padding-bottom: 0.2em;
+    /* Increased space above underline */
 }
 
 .digit-track {

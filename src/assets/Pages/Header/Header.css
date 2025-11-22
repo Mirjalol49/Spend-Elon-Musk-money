@@ -225,10 +225,21 @@
     }
 
     .header-sticky-bar .money-container {
-        font-size: 1.2rem !important;
-        /* Even smaller for very small screens */
+        font-size: clamp(1.2rem, 8vw, 2.2rem) !important;
+        /* Responsive size that fits */
         margin-bottom: 0;
-        padding: 0.5rem 0 !important;
+        padding: 1rem 0 !important;
+        /* Increased padding for breathing room */
+        letter-spacing: -0.5px;
+        white-space: nowrap;
+        overflow: hidden;
+        /* Hide overflow cleanly */
+        text-overflow: ellipsis;
+        /* Show dots if it really doesn't fit */
+        width: 100%;
+        display: block;
+        /* Ensure it takes width */
+        text-align: center;
     }
 
     .header-actions {
