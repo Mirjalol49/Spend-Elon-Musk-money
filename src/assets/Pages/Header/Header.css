@@ -191,27 +191,45 @@
 
     .header-actions {
         width: 100%;
-        justify-content: center;
-        gap: 10px;
-        flex-wrap: wrap;
-        /* Allow wrapping if needed */
+        display: flex;
+        justify-content: space-between;
+        /* Push to sides */
+        gap: 15px;
+        padding: 0 10px;
+        /* Prevent touching edges */
     }
 
     .cart-btn,
     .reset-btn {
-        padding: 8px 16px;
+        padding: 12px 20px;
+        /* Bigger buttons */
         width: auto;
         height: auto;
         border-radius: 30px;
-        font-size: 0.9rem;
-        /* Slightly smaller text */
+        font-size: 1rem;
+        /* Bigger text */
+        flex: 1;
+        /* Make them equal width and fill space */
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    .cart-btn span,
-    .reset-btn span {
-        display: inline;
-        /* Show text */
-    }
+    /* Slightly smaller text */
+}
+
+.cart-btn span,
+.reset-btn span {
+    display: inline;
+    /* Show text */
+}
+
+.cart-btn lottie-player,
+.reset-btn lottie-player {
+    width: 24px !important;
+    /* Match text size better */
+    height: 24px !important;
+}
 }
 
 @media (max-width: 480px) {
@@ -243,12 +261,23 @@
     }
 
     .header-actions {
-        gap: 8px;
+        gap: 10px;
+        /* Slightly smaller gap for very small screens */
     }
 
+    /* Keep buttons big on small screens too */
     .cart-btn,
     .reset-btn {
-        padding: 6px 12px;
-        font-size: 0.8rem;
+        padding: 12px 16px;
+        /* Slightly more padding */
+        font-size: 1.1rem;
+        /* Bigger text */
+    }
+
+    .cart-btn lottie-player,
+    .reset-btn lottie-player {
+        width: 30px !important;
+        /* Bigger icons to match text */
+        height: 30px !important;
     }
 }
