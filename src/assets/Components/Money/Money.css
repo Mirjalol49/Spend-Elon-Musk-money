@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
+:root {
+    --green: 9 252 8;
+    --theme-rgb: var(--green);
+    --darker-rgb: rgb(0, 148, 0);
+}
+
+.money-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    background-color: rgb(var(--darker-rgb));
+    padding: 0.5rem 2rem;
+    /* Increased horizontal padding, reduced vertical */
+    font-family: "Orbitron", sans-serif;
+    color: rgb(var(--theme-rgb));
+    overflow: hidden;
+    border-radius: 1rem;
+
+    /* Base size control - adjusted to prevent crashing */
+    font-size: 4rem;
+    /* Reduced from 6rem */
+    line-height: 1.2;
+    max-width: 100%;
+    letter-spacing: 0.05em;
+    /* Added spacing */
+}
+
+/* Scanline effect overlay */
+.money-container::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to bottom,
+            transparent 50%,
+            rgba(0, 0, 0, 0.5) 51%);
+    background-size: 100% 4px;
+    z-index: 10;
+    opacity: 0.15;
+}
+
+@keyframes pan-lines {
+    from {
+        background-position: 0% 0%;
+    }
+
+    to {
+        background-position: 0% -100%;
+    }
+}
+
+.money-text {
+    display: flex;
+    gap: 0.1em;
+    /* Increased gap */
+    height: 1.2em;
+    /* Increased height for breathing room */
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 5px rgb(var(--theme-rgb) / 30%);
+    align-items: center;
+    /* Center vertically */
+}
+
+.digit-wrapper {
+    position: relative;
+    width: 0.8em;
+    /* Slightly wider */
+    height: 100%;
+    overflow: hidden;
+    border-bottom: 0.08em solid white;
+    /* Changed to white and slightly thicker */
+    display: flex;
+    justify-content: center;
+    padding-bottom: 0.1em;
+    /* Space above underline */
+}
+
+.digit-track {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    will-change: transform;
+    transition: transform 1000ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.digit-track span {
+    height: 1em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comma {
+    display: inline-flex;
+    align-items: flex-end;
+    line-height: 1;
+    padding-bottom: 0.2em;
+    /* Adjusted alignment */
+    font-size: 1em;
+    width: auto;
+    text-shadow: 0 0 5px rgb(var(--theme-rgb) / 30%);
+    color: white;
+    /* Make comma white too? Or keep green? Keeping green for now unless asked, but user said "under numbers line" */
+}
+
+/* Responsive scaling */
+@media(max-width: 1700px) {
+    .money-container {
+        font-size: 3.5rem;
+    }
+}
+
+@media(max-width: 1300px) {
+    .money-container {
+        font-size: 3rem;
+    }
+}
+
+@media(max-width: 900px) {
+    .money-container {
+        font-size: 2.5rem;
+    }
+}
+
+@media(max-width: 600px) {
+    .money-container {
+        font-size: 2rem;
+    }
+}
