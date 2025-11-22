@@ -3,7 +3,7 @@ import './Products.css';
 import Product from '../../../Components/Product/Product';
 import { products } from '../../../../data/products';
 
-const Products = ({ cart, onInteract }) => {
+const Products = ({ cart, onInteract, onSetQuantity }) => {
     return (
         <div className="products-container">
             {products.map((product) => (
@@ -14,6 +14,7 @@ const Products = ({ cart, onInteract }) => {
                     price={product.price}
                     quantity={cart[product.name] || 0}
                     onInteract={onInteract}
+                    onSetQuantity={onSetQuantity}
                 />
             ))}
         </div>

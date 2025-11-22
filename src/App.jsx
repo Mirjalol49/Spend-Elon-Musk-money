@@ -38,6 +38,37 @@ function App() {
     });
   };
 
+  const handleSetQuantity = (name, price, newQuantity) => {
+    const currentQuantity = cart[name] || 0;
+    const diff = newQuantity - currentQuantity;
+
+    if (diff === 0) return;
+
+    if (diff > 0) {
+      // Buying
+      const cost = diff * price;
+      if (money < cost) {
+        // Optional: Buy as many as possible? Or just reject?
+        // For now, strict check like the button
+        return;
+      }
+      setMoney(prev => prev - cost);
+    } else {
+      // Selling
+      const refund = Math.abs(diff) * price;
+      setMoney(prev => prev + refund);
+    }
+
+    setCart(prev => {
+      if (newQuantity <= 0) {
+        const newCart = { ...prev };
+        delete newCart[name];
+        return newCart;
+      }
+      return { ...prev, [name]: newQuantity };
+    });
+  };
+
   const handleReset = () => {
     setMoney(450000000000);
     setCart({});
@@ -52,7 +83,7 @@ function App() {
   return (
     <>
       <Header money={money} onReset={handleReset} onToggleCart={toggleCart} cartCount={Object.values(cart).reduce((a, b) => a + b, 0)} />
-      <Main cart={cart} onInteract={handleInteract} />
+      <Main cart={cart} onInteract={handleInteract} onSetQuantity={handleSetQuantity} />
       <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} cart={cart} />
     </>
   )

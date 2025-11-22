@@ -11,6 +11,10 @@ import Ot from "../assets/Images/horse.png"
 import Visionpro from "../assets/Images/visionpro.png"
 import Uzuk from "../assets/Images/uzuk.png"
 import Umra from "../assets/Images/umra.png"
+import Akfa from "../assets/Images/akfa.png"
+import Macbook from "../assets/Images/mackbook.png"
+import Wedding from "../assets/Images/wedding.png"
+import Gentra from "../assets/Images/gentra.png"
 
 export const products = [
     { id: 1, name: "Lavash", price: 4, image: Lavash },
@@ -26,5 +30,8 @@ export const products = [
     { id: 11, name: "Umra (Vip paket)", price: 2000, image: Umra },   
     { id: 12, name: "Ot", price: 2500, image: Ot },
     { id: 13, name: "Vision Pro", price: 3000, image: Visionpro },
-    
+    { id: 14, name: "Akfa University (Yillik kontrakt)", price: 4500, image: Akfa },  
+    { id: 15, name: "Mackbook Pro (M4 Pro Max)", price: 4000, image: Macbook },  
+    { id: 16, name: "To'y (o'rtacha)", price: 10000, image: Wedding },
+    { id: 17, name: "Gentra", price: 12000, image: Gentra },
 ]

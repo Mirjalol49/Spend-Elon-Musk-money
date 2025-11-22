@@ -1,10 +1,10 @@
 import Products from "./Products/Products";
 
-const Main = ({ cart, onInteract }) => {
+const Main = ({ cart, onInteract, onSetQuantity }) => {
     return (
         <main>
             <section>
-                <Products cart={cart} onInteract={onInteract} />
+                <Products cart={cart} onInteract={onInteract} onSetQuantity={onSetQuantity} />
             </section>
         </main>
     );

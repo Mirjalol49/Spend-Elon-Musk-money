@@ -1,7 +1,7 @@
 import React from 'react';
 import './Product.css';
 
-const Product = ({ image, name, price, quantity, onInteract }) => {
+const Product = ({ image, name, price, quantity, onInteract, onSetQuantity }) => {
 
     const handleBuy = () => {
         onInteract(name, price, 1);
@@ -9,6 +9,21 @@ const Product = ({ image, name, price, quantity, onInteract }) => {
 
     const handleSell = () => {
         onInteract(name, price, -1);
+    };
+
+    const handleQuantityChange = (e) => {
+        const val = e.target.value;
+        // Allow empty string for better typing experience, but treat as 0 for logic if needed
+        // or just don't update if empty/invalid
+        if (val === '') {
+            onSetQuantity(name, price, 0);
+            return;
+        }
+
+        const newQuantity = parseInt(val, 10);
+        if (!isNaN(newQuantity) && newQuantity >= 0) {
+            onSetQuantity(name, price, newQuantity);
+        }
     };
 
     // Format price
@@ -35,9 +50,14 @@ const Product = ({ image, name, price, quantity, onInteract }) => {
                     Sotish
                 </button>
 
-                <div className="product-quantity">
-                    {quantity}
-                </div>
+                <input
+                    type="number"
+                    className="product-quantity-input"
+                    value={quantity === 0 ? '' : quantity}
+                    onChange={handleQuantityChange}
+                    placeholder="0"
+                    min="0"
+                />
 
                 <button
                     className="btn-buy"

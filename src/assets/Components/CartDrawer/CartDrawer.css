@@ -56,39 +56,43 @@
 }
 
 .close-btn {
-    background: transparent;
-    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    /* Semi-transparent white background */
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    /* Subtle border */
     color: white;
     cursor: pointer;
-    width: 36px;
-    /* Explicit width */
-    height: 36px;
-    /* Explicit height */
+    width: 44px;
+    /* Bigger touch target */
+    height: 44px;
     border-radius: 50%;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.8;
     padding: 0;
-    /* Remove padding to prevent shape distortion */
     flex: none;
-    /* Prevent flexbox squishing */
+    backdrop-filter: blur(4px);
+    /* Glassmorphism effect */
 }
 
 .close-btn svg {
-    width: 24px;
-    height: 24px;
-    stroke-width: 2.5;
-    /* Make icon slightly bolder */
+    width: 28px;
+    /* Bigger icon */
+    height: 28px;
+    stroke-width: 3;
+    /* Bolder lines */
 }
 
 .close-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: rotate(90deg);
-    opacity: 1;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-    /* Subtle glow */
+    background: rgba(255, 255, 255, 0.4);
+    transform: rotate(90deg) scale(1.1);
+    border-color: white;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.close-btn:active {
+    transform: scale(0.95);
 }
 
 .cart-items {
